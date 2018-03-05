@@ -1,23 +1,21 @@
 /******************************************
  *  Author : niuzz niuzz@hotmail.com   
- *  Created On : Sat Mar 03 2018
- *  File : webpack.config.js
+ *  Created On : Sun Mar 04 2018
+ *  File : webpack.config.server.js
  *******************************************/
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
+	target: 'node',
 	entry: {
-		app: path.join(__dirname, '../app/app.js')
+		app: path.join(__dirname, '../app/server.entry.js')
 	},
 	output: {
-		filename: '[name].[hash].js', // 浏览器缓存
+		filename: 'server-entry.js', // 没有浏览器缓存
 		path: path.join(__dirname, '../../dist'),
-		publicPath: 'public' // 静态资源路径，区分api，等
+		publicPath: '', // 静态资源路径，区分api，等
+		libraryTarget: 'commonjs2' // 打包规范
 	},
-	plugins: [
-		new HtmlWebpackPlugin()
-	],
 	module: {
 		rules: [
 			{

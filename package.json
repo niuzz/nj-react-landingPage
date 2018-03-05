@@ -3,24 +3,30 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "webpack": "^3.6.0",
-    "material-ui": "^1.0.0-beta.34",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babelify": "^7.3.0",
     "css-loader": "^0.25.0",
-    "style-loader": "^0.13.1"
+    "koa": "^2.5.0",
+    "material-ui": "^1.0.0-beta.34",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^3.6.0"
   },
   "scripts": {
-    "build": "webpack --config src/build/webpack.config.js"
+    "build:client": "webpack --config src/build/webpack.config.client.js",
+    "build:server": "webpack --config src/build/webpack.config.server.js",
+    "clear": "rimraf dist",
+    "build": "npm run clear && npm run build:client && npm run build:server",
+    "start": "node server/server.js"
   },
   "devDependencies": {
     "html-webpack-plugin": "^3.0.4",
+    "rimraf": "^2.6.2",
     "webpack-cli": "^2.0.9",
     "webpack-dev-server": "^3.0.1"
   }
