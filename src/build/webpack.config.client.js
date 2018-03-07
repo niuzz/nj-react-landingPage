@@ -7,15 +7,14 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
-
-module.exports = {
+const config = {
 	entry: {
 		app: path.join(__dirname, '../app/app.js')
 	},
 	output: {
 		filename: '[name].[hash].js', // 浏览器缓存
 		path: path.join(__dirname, '../../dist'),
-		publicPath: '' // 静态资源路径，区分api，等
+		publicPath: 'pbulic' // 静态资源路径，区分api，等
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
@@ -38,3 +37,21 @@ module.exports = {
 		]
 	}
 }
+
+if (isDev) {
+	config.devServer = {
+		host: '0.0.0.0',
+		port: '9000',
+		contentBase: path.join(__dirname, '../../dist'),
+		// hot: true,
+		overlay: {
+			errors: true
+		},
+		publicPath: '',
+		historyApiFallback: {
+			index: 'index.html'
+		}
+	}
+}
+
+module.exports = config

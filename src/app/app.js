@@ -11,3 +11,12 @@ import App from './App.jsx'
 ReactDom.render(
 	<App />, document.body
 )
+
+if (module.hot) {
+	module.hot.accept('./App', () => {
+		const NextApp = require('./App.jsx').default
+		ReactDom.render(
+			<App />, document.body
+		)
+	})
+}
