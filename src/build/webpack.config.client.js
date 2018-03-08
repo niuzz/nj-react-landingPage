@@ -14,7 +14,7 @@ const config = {
 	output: {
 		filename: '[name].[hash].js', // 浏览器缓存
 		path: path.join(__dirname, '../../dist'),
-		publicPath: 'pbulic' // 静态资源路径，区分api，等
+		publicPath: '/public' // 静态资源路径，区分api，等
 	},
 	module: {
 		rules: [
@@ -47,9 +47,9 @@ if (isDev) {
 		overlay: {
 			errors: true
 		},
-		publicPath: '',
+		publicPath: '/public',
 		historyApiFallback: {
-			index: 'index.html'
+			index: '/public/index.html'
 		}
 	}
 }
