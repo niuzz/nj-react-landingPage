@@ -16,11 +16,6 @@ const config = {
 		path: path.join(__dirname, '../../dist'),
 		publicPath: 'pbulic' // 静态资源路径，区分api，等
 	},
-	plugins: [
-		new HtmlWebpackPlugin({
-			template: path.join(__dirname, '../app/template.html')
-		})
-	],
 	module: {
 		rules: [
 			{
@@ -30,12 +25,17 @@ const config = {
 					path.join(__dirname, '../node_modules')
 				]
 			},
-      {
-        test: /.jsx$/,
-        loader: 'babel-loader'
-      }
+			{
+				test: /.jsx$/,
+				loader: 'babel-loader'
+			}
 		]
-	}
+	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: path.join(__dirname, '../app/template.html')
+		})
+	]
 }
 
 if (isDev) {
