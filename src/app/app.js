@@ -6,11 +6,21 @@
 
 import React from 'react'
 import ReactDom from 'react-dom'
+import { AppContainer } from 'react-hot-loader' // hot
 import App from './App.jsx'
 
-ReactDom.render(
-	<App />, document.getElementById('root')
-)
+const root = document.getElementById('root')
+
+const render = Component => {
+	React.hydrate(
+		<AppContainer>
+			<Component />
+		</AppContainer>,
+		root
+	)
+}
+
+render(App)
 
 if (module.hot) {
 	module.hot.accept('./App', () => {
