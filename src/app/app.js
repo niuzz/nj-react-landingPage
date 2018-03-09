@@ -23,10 +23,10 @@ const render = Component => {
 render(App)
 
 if (module.hot) {
-	module.hot.accept('./App', () => {
+	module.hot.accept('./app', () => {
 		const NextApp = require('./App.jsx').default
 		ReactDom.render(
-			<App />, document.body
+			<NextApp />, document.body
 		)
 	})
 }
