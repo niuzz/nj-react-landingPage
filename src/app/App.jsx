@@ -4,7 +4,7 @@ export default class App extends React.Component {
 	render() {
 		return(
 			<div>
-				This is jsx
+				This is jsxssddkk
 			</div>
 		)
 	}

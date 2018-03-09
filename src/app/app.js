@@ -12,7 +12,7 @@ import App from './App.jsx'
 const root = document.getElementById('root')
 
 const render = Component => {
-	React.hydrate(
+	ReactDom.hydrate(
 		<AppContainer>
 			<Component />
 		</AppContainer>,
