@@ -19,7 +19,7 @@
     "start": "node server/server.js",
     "clear": "rimraf dist",
     "build": "npm run clear && npm run build:client && npm run build:server",
-    "lint": "eslint --ext .js --ext .jsx app/",
+    "lint": "eslint --ext .js --ext .jsx src/app/",
     "precommit": "npm run lint"
   },
   "devDependencies": {

@@ -2,6 +2,6 @@ import React from 'react'
 
 export default () => (
   <div>
-      This is jsxss
+      This is jsxsa
   </div>
 )
