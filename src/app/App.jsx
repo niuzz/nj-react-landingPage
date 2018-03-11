@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default () => (
-  <div>
-      This is jsxsa
-  </div>
-)
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+        This is jsx
+      </div>
+    )
+  }
+}

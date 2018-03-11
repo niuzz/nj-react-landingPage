@@ -12,6 +12,7 @@
 	"extends": "airbnb",
 	"rules": {
     "semi":	"off",
-    "react/jsx-filename-extension": "off"
+    "react/jsx-filename-extension": "off",
+    "react/prefer-stateless-function": "off"
   }
 }

@@ -13,9 +13,9 @@ module.exports = webpackMerge(baseConfig, {
     app: path.join(__dirname, '../app/server.entry.js')
   },
   output: {
-    filename: 'server-entry.js', // 没有浏览器缓存
+    filename: 'server-entry.js',
     path: path.join(__dirname, '../../dist'),
-    publicPath: '/public', // 静态资源路径，区分api，等
+    publicPath: '/public/', // 静态资源路径，区分api，等
     libraryTarget: 'commonjs2' // 打包规范
   }
 })
