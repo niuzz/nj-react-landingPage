@@ -14,20 +14,15 @@ const app = express()
 app.use(favicon(path.join(__dirname, '../favicon.png')))
 
 const template = fs.readFileSync(path.join(__dirname, '../dist/index.html'), 'utf8')
-
 const serverEntry = require('../dist/server-entry.js').default
 
+app.use('/public', express.static(path.join(__dirname, '../dist')))
 app.get('*', function(req, res) {
 	let ssrString = ReactSSR.renderToString(serverEntry)
-	console.log('-----------------------')
-	console.log(template)
-	console.log('-----------------------')
-	
 	res.send(template.replace('<!-- app -->', ssrString))
-	// res.send(template)
 })
 
 app.listen('3000', function () {
-	console.log(chalk.blue('server is listening on port 3000 %o', 'http://localhost:3000'))
+	console.log(chalk.blue('server is listening on port 3000', 'http://localhost:3000'))
 	console.log('\n')
 })
