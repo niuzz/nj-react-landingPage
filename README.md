@@ -1,4 +1,4 @@
-### nj-react-landingpage
+### nj-react-ssr
 
 A project for business landing page, that build by react.
 
