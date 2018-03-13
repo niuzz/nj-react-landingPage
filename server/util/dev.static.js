@@ -25,27 +25,29 @@ const getTemplate = () => {
 const Module = module.constructor
 
 const mfs = new MemoryFs()
-const serverCompiler = webpack(serverConfig)
+const serverCompiler = webpack(serverConfig)// webpack提供的的在node里当做模块调用
 serverCompiler.outputFileSystem = mfs // 用mfs替换了fs
 let serverBundle
+// 监听打包文件变化
 serverCompiler.watch({}, (err, stats) => {
   if (err) throw err
   stats = stats.toJson()
   stats.errors.forEach(err => console.error(err))
-  stats.warnings.forEach(warn => console.error(warn))
+  stats.warnings.forEach(warn => console.warn(warn))
 
-  const bundlePath = path.join(
+  const bundlePath = path.join( // 读取bundle
     serverConfig.output.path,
     serverConfig.output.filename
   )
-  const bundle = mfs.readFileSync(bundlePath, 'utf-8')
+  const bundle = mfs.readFileSync(bundlePath, 'utf-8') // 打包的文件读出来了，但不是js里面能使用的模块的方式，需要使用下面的hack方法转化
+
   const m = new Module()
-  m._compile(bundle, 'server-entry.js') // 必须指定bundle, 把bundle编译成node可使用的module
+  m._compile(bundle, 'server-entry.js') // 必须指定bundle, 把bundle编译成node可使用的module，实际上是写入ms内存的名字
   serverBundle = m.exports.default
 })
 
 module.exports = function (app) {
-  app.use('/public', proxy({
+  app.use('/public', proxy({ // 不使用代理中间件，将不能解析静态资源，代理到了dev:client端口上了
     target: 'http://localhost:9000'
   }))
   app.get('*', function (req, res) {

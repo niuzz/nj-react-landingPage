@@ -4,7 +4,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        From Hot-Module-Replacement test
+        From Hot-Module-Replacement nodemon
       </div>
     )
   }
