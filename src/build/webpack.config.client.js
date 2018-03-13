@@ -6,6 +6,8 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+isDev = process.env.NODE_ENV === 'development'
+
 module.exports = {
 	entry: {
 		app: path.join(__dirname, '../app/app.js')

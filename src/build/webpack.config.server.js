@@ -11,7 +11,7 @@ module.exports = {
 		app: path.join(__dirname, '../app/app.js')
 	},
 	output: {
-		filename: 'server.entry.js',
+		filename: 'server-entry.js',
 		path: path.join(__dirname, '../../dist'),
 		libraryTarget: 'commonjs2'
 	},
