@@ -1,7 +1,5 @@
 import React from 'react'
 
-export default () => {
-	return (
-		<div> This is Header </div>
-	)
-}
+export default () => (
+  <div> This is Header AV8B</div>
+)
