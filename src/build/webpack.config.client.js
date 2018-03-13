@@ -7,9 +7,9 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpackMerge = require('webpack-merge')
 const base = require('./webpack.config.base')
-// const webpack = require('webpack')
+const webpack = require('webpack')
 
-// const isDev = process.env.NODE_ENV === 'development'
+const isDev = process.env.NODE_ENV === 'development'
 
 const config = webpackMerge(base, {
   entry: {
@@ -17,8 +17,6 @@ const config = webpackMerge(base, {
   },
   output: {
     filename: '[name].[hash].js',
-    path: path.join(__dirname, '../../dist'),
-    // publicPath: '/public/',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -26,6 +24,27 @@ const config = webpackMerge(base, {
     }),
   ],
 })
+
+if (isDev) {
+  config.entry = [
+    'react-hot-loader/patch',
+    path.join(__dirname, '../app/app.js'),
+  ]
+  config.devServer = {
+    host: '0.0.0.0',
+    port: '9000',
+    contentBase: path.join(__dirname, '../../dist'),
+    hot: true,
+    overlay: {
+      errors: true,
+    },
+    publicPath: '/public/',
+    historyApiFallback: {
+      index: '/public/index.html',
+    },
+  }
+  config.plugins.push(new webpack.HotModuleReplacementPlugin())
+}
 
 
 module.exports = config

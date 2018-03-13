@@ -16,9 +16,7 @@ const config = webpackMerge(
     },
     output: {
       filename: 'server-entry.js',
-      path: path.join(__dirname, '../../dist'),
       libraryTarget: 'commonjs2',
-      publicPath: '/public/',
     },
   },
 )

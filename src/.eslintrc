@@ -14,5 +14,8 @@
 		"semi": "off",
 		"react/jsx-filename-extension": "off",
 		"react/prefer-stateless-function": "off"
-	}
+	},
+	"plugins": [
+		"html"
+	]
 }
