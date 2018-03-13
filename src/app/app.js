@@ -3,12 +3,20 @@
  *  Created On : Mon Mar 12 2018
  *  File : app.js
  *******************************************/
-const React = require('react')
-const ReactDom = require('react-dom')
-
+import React from 'react'
+import ReactDom from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
 import App from './App.jsx'
+
 const root = document.getElementById('root')
 
-ReactDom.render(
-	<App />, root
-)
+const render = (Component) => {
+	ReactDom.hydrate(
+		<AppContainer>
+			<Component />
+		</AppContainer>,
+		root
+	)
+}
+
+render(App)

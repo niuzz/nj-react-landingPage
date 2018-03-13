@@ -11,14 +11,20 @@ const ReactSSR = require('react-dom/server')
 const chalk = require('chalk')
 
 const app = express()
-app.use(favicon(path.join(__dirname, '../favicon.ico')))
+app.use(favicon(path.join(__dirname, '../favicon.png')))
 
 const template = fs.readFileSync(path.join(__dirname, '../dist/index.html'), 'utf8')
 
-const serverEntry = require('../dist/server-entry.js')
+const serverEntry = require('../dist/server-entry.js').default
 
 app.get('*', function(req, res) {
-	res.send(template)
+	let ssrString = ReactSSR.renderToString(serverEntry)
+	console.log('-----------------------')
+	console.log(template)
+	console.log('-----------------------')
+	
+	res.send(template.replace('<!-- app -->', ssrString))
+	// res.send(template)
 })
 
 app.listen('3000', function () {
