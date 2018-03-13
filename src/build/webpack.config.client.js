@@ -26,12 +26,15 @@ const config = webpackMerge(base, {
 })
 
 if (isDev) {
-  config.entry = [
-    'react-hot-loader/patch',
-    path.join(__dirname, '../app/app.js'),
-  ]
+  config.entry = {
+    app: [
+      'react-hot-loader/patch',
+      path.join(__dirname, '../app/app.js'),
+    ],
+  }
+
   config.devServer = {
-    host: '0.0.0.0',
+    host: 'localhost',
     port: '9000',
     contentBase: path.join(__dirname, '../../dist'),
     hot: true,

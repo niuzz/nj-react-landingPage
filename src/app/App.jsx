@@ -6,7 +6,7 @@ export default class App extends React.Component {
     return (
       <div>
         <RHeader />
-        <p>ssraa</p>
+        <p>aaacc666bb</p>
       </div>
     )
   }
