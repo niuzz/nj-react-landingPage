@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
+import Routers from '../config/router'
 
 export default class App extends Component {
+  componentDidMount() {
+
+  }
   render() {
-    return (
-      <div>
-        From Hot-Module-Replacement nodemon
-      </div>
-    )
+    return [
+      <div>server ssr</div>,
+      <Routers />,
+    ]
   }
 }
