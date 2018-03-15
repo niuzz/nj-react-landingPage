@@ -9,12 +9,12 @@ export default class App extends Component {
   }
   render() {
     return [
-      <div>
+      <div key="Links">
         <Link to="/"> Home </Link>
         <br />
         <Link to="/detail"> Detail </Link>
       </div>,
-      <Routers />,
+      <Routers key="routers" />,
     ]
   }
 }
