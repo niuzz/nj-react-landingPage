@@ -3,7 +3,7 @@
  *  Created On : Thu Mar 15 2018
  *  File : app.state.js
  ****************************************** */
-import { observable, computed, action, autorun } from 'mobx'
+import { observable, computed, action } from 'mobx'
 
 export class AppState {
   @observable count = 0
@@ -18,11 +18,6 @@ export class AppState {
 
 const appState = new AppState()
 
-autorun(() => {
-  console.log('-----------------------')
-  console.log(appState.msg)
-  console.log('-----------------------')
-})
 
 setInterval(() => {
   appState.add()

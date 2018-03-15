@@ -8,10 +8,26 @@ const favicon = require('serve-favicon')
 const ReactSSR = require('react-dom/server')
 const fs = require('fs')
 const path = require('path')
+const session = require('express-session')
+const bodyParser = require('body-parser')
 
 const isDev = process.env.NODE_ENV === 'development'
 
 const app = express()
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}))
+
+app.use(session({
+  maxAge: 10 * 60 * 1000,
+  name: 'tid',
+  resave: false,
+  saveUninitialized: false,
+  secret: 'nj-top'
+}))
+
+app.use('api/login', require('./util/handel.login'))
+app.use('api', require('./util/proxy'))
 
 app.use(favicon(path.join(__dirname, '../favicon.png')))
 
