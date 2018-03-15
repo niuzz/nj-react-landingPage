@@ -3,12 +3,29 @@
  *  Created On : Thu Mar 15 2018
  *  File : app.state.js
  ****************************************** */
-import { observable } from 'mobx'
+import { observable, computed, action, autorun } from 'mobx'
 
-class AppState {
+export class AppState {
   @observable count = 0
+  @observable name = 'nj'
+  @computed get msg() {
+    return `${this.name} say ${this.count}`
+  }
+  @action add() {
+    this.count += 1
+  }
 }
 
 const appState = new AppState()
+
+autorun(() => {
+  console.log('-----------------------')
+  console.log(appState.msg)
+  console.log('-----------------------')
+})
+
+setInterval(() => {
+  appState.add()
+}, 1000)
 
 export default appState

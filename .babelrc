@@ -2,7 +2,8 @@
 	"presets": [
     ["es2015", {"loose": true}],
     "stage-1",
-		"react"
+    "react",
+    "react-app"
 	],
 	"plugins": [
     "transform-decorators-legacy",
