@@ -11,6 +11,12 @@ const path = require('path')
 const session = require('express-session')
 const bodyParser = require('body-parser')
 
+const token = require('./util/token.json')
+
+console.log('-----------------------')
+console.log(token.accessToken)
+console.log('-----------------------')
+
 const isDev = process.env.NODE_ENV === 'development'
 
 const app = express()
@@ -26,8 +32,8 @@ app.use(session({
   secret: 'nj-top'
 }))
 
-app.use('api/login', require('./util/handel.login'))
-app.use('api', require('./util/proxy'))
+app.use('/api/login', require('./util/handel.login'))
+app.use('/api', require('./util/proxy'))
 
 app.use(favicon(path.join(__dirname, '../favicon.png')))
 

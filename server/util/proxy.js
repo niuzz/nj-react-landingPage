@@ -5,10 +5,11 @@
  *******************************************/
 
 const axios = require('axios')
-const baseUrl = 'http://cnode.org/api/v1'
+const baseUrl = 'https://cnodejs.org/api/v1'
 
 module.exports = function (req, res, next) {
   const path = req.path
+
   const user = req.session.user || {}
   const needAccessToken = req.query.needAccessToken
   if (needAccessToken && !user.accessToken) {
