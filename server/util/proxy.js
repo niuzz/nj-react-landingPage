@@ -6,6 +6,7 @@
 
 const axios = require('axios')
 const baseUrl = 'https://cnodejs.org/api/v1'
+const qs = require('query-string')
 
 module.exports = function (req, res, next) {
   const path = req.path
@@ -25,11 +26,11 @@ module.exports = function (req, res, next) {
   axios(`${baseUrl}${path}`, {
     method: req.method,
     params: query,
-    data: Object.assign({}, req.body, {
+    data: qs.stringify(Object.assign({}, req.body, {
       accesstoken: user.accessToken
-    }),
+    })),
     headers: {
-      'Content-Type': 'application/x-www-form-urlencode'
+      'Content-Type': 'application/x-www-form-urlencoded'
     }
   }).then(resp => {
     if (resp.status === 200) {
