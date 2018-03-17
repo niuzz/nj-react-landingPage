@@ -32,7 +32,7 @@ router.post('/login', function (req, res, next) {
       if (error.response) {
         res.json({
           success: false,
-          data: error.response
+          data: error.response.data
         })
       } else {
         next(error)
