@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpackMerge = require('webpack-merge')
 const baseConfig = require('./webpack.base')
 const webpack = require('webpack')
+const HTMLPlugin = require('html-webpack-plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
 const config = webpackMerge(baseConfig, {
@@ -15,13 +16,15 @@ const config = webpackMerge(baseConfig, {
     app: path.join(__dirname, '../app/app.js')
   },
   output: {
-    filename: '[name].[hash].js', // 浏览器缓存
-    path: path.join(__dirname, '../../dist'),
-    publicPath: '/public/' // 静态资源路径，区分api，等
+    filename: '[name].[hash].js' // 浏览器缓存
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '../app/template.html')
+    }),
+    new HTMLPlugin({
+      template: '!!ejs-compiled-loader!' + path.join(__dirname, '../app/server-template.ejs'),
+      filename: 'server.ejs'
     })
   ]
 })

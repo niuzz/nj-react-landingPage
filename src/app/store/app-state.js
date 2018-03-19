@@ -3,16 +3,27 @@
  *  Created On : Thu Mar 15 2018
  *  File : app.state.js
  ****************************************** */
-import { observable, computed, action } from 'mobx'
+import {
+  observable,
+  computed,
+  action,
+} from 'mobx'
 
 export default class AppState {
-  @observable count = 0
-  @observable name = 'nj'
+  constructor({ count, name } = { count: 0, name: 'nj' }) {
+    this.count = count
+    this.name = name
+  }
+  @observable count
+  @observable name
   @computed get msg() {
-    return `${this.name} say ${this.count}`
+    return `${this.name} say count is ${this.count}`
   }
   @action add() {
     this.count += 1
+  }
+  @action changeName(name) {
+    this.name = name
   }
   toJson() {
     return {
@@ -21,3 +32,4 @@ export default class AppState {
     }
   }
 }
+

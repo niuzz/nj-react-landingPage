@@ -3,7 +3,7 @@
  *  Created On : Wed Mar 14 2018
  *  File : index.js
  ****************************************** */
-import AppStateClass from './app.state'
+import AppStateClass from './app-state'
 
 export const AppState = AppStateClass
 
@@ -12,5 +12,5 @@ export default {
 }
 
 export const createStoreMap = () => ({
-  appState: new AppStateClass(),
+  appState: new AppState(),
 })
