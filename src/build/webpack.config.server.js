@@ -14,8 +14,6 @@ module.exports = webpackMerge(baseConfig, {
   },
   output: {
     filename: 'server-entry.js',
-    path: path.join(__dirname, '../../dist'),
-    publicPath: '/public/', // 静态资源路径，区分api，等
     libraryTarget: 'commonjs2' // 打包规范
   }
 })
