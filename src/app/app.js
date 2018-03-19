@@ -10,14 +10,19 @@ import { Provider } from 'mobx-react'
 import { AppContainer } from 'react-hot-loader' // eslint-disable-line
 
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
-import { lightBlue, pink } from 'material-ui/colors'
+import { lightBlue } from 'material-ui/colors'
 
 import App from './views/App'
 import AppState from './store/app-state'
 
 const theme = createMuiTheme({
   palette: {
-    primary: pink,
+    primary: {
+      light: '#ff7961',
+      main: '#f44336',
+      dark: '#ba000d',
+      contrastText: '#fff',
+    },
     accent: lightBlue,
     type: 'light',
   },

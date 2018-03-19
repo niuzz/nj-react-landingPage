@@ -17,6 +17,7 @@ const createMuiTheme = require('material-ui/styles').createMuiTheme
 const createGenerateClassName = require('material-ui/styles/createGenerateClassName').default
 const colors = require('material-ui/colors')
 
+// 同步mobx
 const getStoreState = (stores) => {
   return Object.keys(stores).reduce((result, storeName) => {
     result[storeName] = stores[storeName].toJson()
