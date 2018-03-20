@@ -34,6 +34,10 @@ export default class TopicList extends React.Component {
     this.props.appState.changeName(event.target.value)
   }
 
+  msg() {
+    console.log(1111)
+  }
+
   render() {
     return (
       <div>
@@ -41,7 +45,7 @@ export default class TopicList extends React.Component {
           <title>This is topic list</title>
           <meta name="description" content="This is description" />
         </Helmet>
-        <Button variant="raised" color="primary">This is a button</Button>
+        <Button variant="raised" color="primary" onClick={this.msg}>This is a button</Button>
         <input type="text" onChange={this.changeName} />
         <span>{this.props.appState.msg}</span>
       </div>
