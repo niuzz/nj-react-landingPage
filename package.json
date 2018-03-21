@@ -1,0 +1,20 @@
+{
+  "name": "nj-react",
+  "version": "1.0.0",
+  "description": "umi react ssr",
+  "main": ".webpackrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niuzz/nj-react-ssr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niuzz/nj-react-ssr/issues"
+  },
+  "homepage": "https://github.com/niuzz/nj-react-ssr#readme",
+  "dependencies": {}
+}

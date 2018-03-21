@@ -3,6 +3,7 @@
 node_modules
 .umi
 .vscode
+dist
 
 # files
 package-lock.json
