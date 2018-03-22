@@ -2,3 +2,7 @@
 	width: 1200px;
 	background: #ddd;
 }
+
+li, a {
+	text-decoration: none !important;
+}

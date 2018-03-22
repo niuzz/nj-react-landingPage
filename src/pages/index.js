@@ -8,11 +8,9 @@ import Slider from 'components/Slider'
 import KD from 'components/KeyData'
 import styles from './index.less'
 
-const path = require('path')
-
-const img1 = '/src/' + path.join(__dirname, '../assets/1.jpg')
-const img2 = '/src/' + path.join(__dirname, '../assets/2.png')
-const img3 = '/src/' + path.join(__dirname, '../assets/3.jpg')
+const img1 = '/static/1.jpg'
+const img2 = '/static/2.png'
+const img3 = '/static/3.jpg'
 
 const imgs = [img1, img2, img3]
 
@@ -29,10 +27,11 @@ export default class Index extends React.Component {
 						<Slider imgs={imgs} className={styles.slider} />
 					</div>
 				</div>
-				<div className={styles.keyData}>
-					<KD />
+				<div className={styles.keyDataWrap}>
+					<div className={styles.keyData}>
+						<KD />
+					</div>
 				</div>
-				
 				<p>aaaa</p>
 			</section>
 		)
