@@ -16,9 +16,9 @@ export default class Slider extends React.Component {
 		return(
 			<div>
 				<Carousel {...settings}>
-					<div style={{ background: 'url(' + require('../../assets/1.jpg') + ')', backgroundSize: 'cover'}}></div>
-					<div style={{ background: 'url(' + require('../../assets/1.jpg') + ')', backgroundSize: 'cover' }}></div>
-					<div style={{ background: 'url(' + require('../../assets/1.jpg') + ')', backgroundSize: 'cover' }}></div>
+					<div style={{ background: 'url('+ imgs[0] +')', backgroundSize: 'cover', height: '377px'}}></div>
+					<div style={{ background: 'url('+ imgs[1] +')', backgroundSize: 'cover', height: '377px' }}></div>	
+					<div style={{ background: 'url('+ imgs[2] +')', backgroundSize: 'cover', height: '377px' }}></div>				
 				</Carousel>
 			</div>
 		)

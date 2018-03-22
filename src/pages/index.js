@@ -10,7 +10,7 @@ import styles from './index.less'
 
 const path = require('path')
 
-const img1 = path.join(__dirname, '../assets/1.jpg')
+const img1 = '/src/' + path.join(__dirname, '../assets/1.jpg')
 const img2 = '/src/' + path.join(__dirname, '../assets/2.png')
 const img3 = '/src/' + path.join(__dirname, '../assets/3.jpg')
 
