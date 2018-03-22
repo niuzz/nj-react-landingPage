@@ -22,7 +22,7 @@ export default class ScrollBar extends React.Component {
   }
   
   componentDidMount() {
-    const {speed, scrollPX} = this.props;
+    const {speed} = this.props;
     const wrap = this.refs.wrap;
     const scrollDiv1 = this.refs.content1;
     const scrollDiv2 = this.refs.content2;
