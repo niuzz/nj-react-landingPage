@@ -6,6 +6,7 @@
 import React from 'react'
 import Slider from 'components/Slider'
 import KD from 'components/KeyData'
+import TrendBar from 'components/TrendBar'
 import styles from './index.less'
 
 const img1 = '/static/1.jpg'
@@ -20,8 +21,9 @@ export default class Index extends React.Component {
 	}
 
 	render() {
+		const list = ['新闻报道', '新闻报道', '新闻报道', '新闻报道', '新闻报道', '新闻报道']
 		return (
-			<section>
+			<div>
 				<div className={styles.slider}>
 					<div>
 						<Slider imgs={imgs} className={styles.slider} />
@@ -32,8 +34,10 @@ export default class Index extends React.Component {
 						<KD />
 					</div>
 				</div>
-				<p>aaaa</p>
-			</section>
+				<div className="nj-container">
+					<TrendBar list={list}/>
+				</div>
+			</div>
 		)
 	}
 }
