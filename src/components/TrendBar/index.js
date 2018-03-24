@@ -25,28 +25,30 @@ export default class TrendBar extends React.Component{
   showBlockAction(e) {
     let rect = ReactDOM.findDOMNode(e.target).getBoundingClientRect()
     let lastLeft = ReactDOM.findDOMNode(this.refs.block5).getBoundingClientRect().left
+    let left = rect.left - 40
     const objRect = {
       lastLeft: lastLeft,
-      left: rect.left,
-      top: rect.top
+      left: left,
+      top: 20
     } 
     
     this.toggleShowBlockHandler(objRect)
-    console.log('-----------------------')
-    console.log(this.state.isShow)
-    console.log('-----------------------')
-    
   }
 
   render() {
     return(
       <div className={styles.treadWrap}>
-        <ul onMouseLeave={this.showBlockAction}>
-          { this.props.list.map((item, index) => {
-            return <li onMouseOver={this.showBlockAction} onMouseLeave={this.showBlockAction} key={index} ref={'block' + index}> {item + index} </li>
-            })
-          }
-        </ul>
+          <ul onMouseLeave={this.showBlockAction} >
+            { this.props.list.map((item, index) => {
+              return <li 
+                onMouseOver={this.showBlockAction} 
+                onMouseLeave={this.showBlockAction} 
+                key={index} 
+                ref={'block' + index}> {item + index} 
+                </li>
+              })
+            }
+          </ul>
         <TrendBlock ref="trendBlock" isShow={this.state.isShow} rect={this.state.rect}></TrendBlock>
       </div>
     )

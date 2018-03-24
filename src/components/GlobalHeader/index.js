@@ -4,7 +4,6 @@
  *  File : index.js
  *******************************************/
 import React from 'react'
-import Link from 'umi/link'
 import styles from './index.less'
 import { Menu, Dropdown, Icon } from 'antd'
 

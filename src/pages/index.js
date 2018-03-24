@@ -9,6 +9,8 @@ import KD from 'components/KeyData'
 import TrendBar from 'components/TrendBar'
 import styles from './index.less'
 
+import Chart from 'components/Charts/PieChart'
+
 const img1 = '/static/1.jpg'
 const img2 = '/static/2.png'
 const img3 = '/static/3.jpg'
@@ -36,6 +38,7 @@ export default class Index extends React.Component {
 				</div>
 				<div className="nj-container">
 					<TrendBar list={list}/>
+					<Chart />
 				</div>
 			</div>
 		)

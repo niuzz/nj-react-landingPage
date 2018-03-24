@@ -4,7 +4,6 @@
  *  File : TrendBlock.js
  *******************************************/
 import React from 'react';
-import ReactDOM from 'react-dom';
 import styles from './index.less';
 
 export default class TrendBlock extends React.Component {
@@ -35,7 +34,7 @@ export default class TrendBlock extends React.Component {
 			isShow: nextProps.isShow,
 			rectStyle: {
 				top: nextProps.rect.top,
-				left: nextProps.rect.left === lastLeft ? lastLeft - (1200 / 6) : nextProps.rect.left
+				left: nextProps.rect.left === (lastLeft - 40) ? lastLeft - (1200 / 6) - 40 : nextProps.rect.left
 			}
 		})
 	}
@@ -46,7 +45,7 @@ export default class TrendBlock extends React.Component {
 		const style = { top: top, left:left }
 		return(
 			<div className={`${styles['trend-block']} ${this.state.isShow ? 'show' : 'hidden'}`} style={style}>
-				TrendBlock
+				TrendBlock {this.props.index}
 			</div>
 		)
 	}
