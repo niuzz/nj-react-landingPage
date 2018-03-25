@@ -38,7 +38,7 @@ export default class TrendBar extends React.Component{
   render() {
     return(
       <div className={styles.treadWrap}>
-          <ul onMouseLeave={this.showBlockAction} >
+          <ul>
             { this.props.list.map((item, index) => {
               return <li 
                 onMouseOver={this.showBlockAction} 
