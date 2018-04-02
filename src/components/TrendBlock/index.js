@@ -30,6 +30,14 @@ export default class TrendBlock extends React.Component {
 
 		if (this.state.rectStyle.left === nextProps.rect.left) return;
 		// if (this.state.rectStyle.left === lastLeft || this.state.rectStyle.left === nextProps.rect.left - (1200 / 6)) return;
+		
+		if (this.state.rectStyle.left === lastLeft) {
+			console.log('-----------------------')
+			console.log(111)
+			console.log('-----------------------')
+		}
+		
+		
 		this.setState({
 			isShow: nextProps.isShow,
 			rectStyle: {

@@ -24,7 +24,7 @@ export default class TrendBar extends React.Component{
 
   showBlockAction(e) {
     let rect = ReactDOM.findDOMNode(e.target).getBoundingClientRect()
-    let lastLeft = ReactDOM.findDOMNode(this.refs.block5).getBoundingClientRect().left
+    let lastLeft = ReactDOM.findDOMNode(this.refs.block5).getBoundingClientRect().left - 40
     let left = rect.left - 40
     const objRect = {
       lastLeft: lastLeft,
