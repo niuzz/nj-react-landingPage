@@ -14,5 +14,12 @@ export default {
     utils: resolve(__dirname, 'src/utils'),
   },
   publicPath: '/static/',
-  copy: ['static/']
+  copy: ['static/'],
+  "proxy": {
+    "/api": {
+      "target": "http://jsonplaceholder.typicode.com/",
+      "changeOrigin": true,
+      "pathRewrite": { "^/api": "" }
+    }
+  }
 };
