@@ -3,7 +3,7 @@
  *  Created On : Wed Apr 04 2018
  *  File : page.js
  *******************************************/
-import '../../utils/util' 
+
 export default () => {
 	return (
 		<div>
