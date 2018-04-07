@@ -1,5 +1,4 @@
 import dva, { connect } from 'dva';
-import { Router, Route } from 'dva/router';
 import React from 'react';
 import styles from './index.less';
 import key from 'keymaster';
@@ -53,13 +52,7 @@ const CountApp = ({ count, dispatch }) => {
 function mapStateToProps(state) {
 	return { count: state.count };
 }
-const HomePage = connect(mapStateToProps)(CountApp);
-
-app.router(({ history }) =>
-	<Router history={history}>
-		<Route path="/" component={HomePage} />
-	</Router>
-);
+connect(mapStateToProps)(CountApp);
 
 export default CountApp
 
