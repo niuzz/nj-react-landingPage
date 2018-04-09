@@ -1,29 +1,22 @@
-/******************************************
- *  Author : niuzz niuzz@hotmail.com   
- *  Created On : Tue Mar 20 2018
- *  File : index.js
- *******************************************/
-import React from 'react'
-import GlobalHeader from 'components/GlobalHeader'
-import { Layout } from 'antd'
-const { Content } = Layout
+import withRouter from 'umi/withRouter';
+import { connect } from 'dva';
+import { IntlProvider } from 'react-intl';
 
-export default class AppLayout extends React.Component {
-	componentDidMount() {
-		// do somthing
-	}
-	render() {
-		return (
-			<Layout>
-				<GlobalHeader />
-				<Content>
-					<div>
-				 		{
-				 			this.props.children
-				 		}
-				 	</div>
-				</Content>
-			</Layout>
-		)
-	}
+function mapStateToProps(state) {
+  return {
+    text: state.global.text,
+  };
 }
+
+export default withRouter(
+  connect(mapStateToProps)(props => {
+    return (
+      <IntlProvider locale="en">
+        <div>
+          <h1>MAIN LAYOUT {props.text}</h1>
+          {props.children}
+        </div>
+      </IntlProvider>
+    );
+  }),
+);

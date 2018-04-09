@@ -4,7 +4,9 @@
   "description": "umi react ssr",
   "main": ".webpackrc.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "umi dev",
+    "build": "umi build"
   },
   "repository": {
     "type": "git",
@@ -18,11 +20,12 @@
   "homepage": "https://github.com/niuzz/nj-react-ssr#readme",
   "dependencies": {
     "babel-eslint": "^8.2.2",
-    "dva": "^2.1.0",
     "echarts": "^4.0.4",
-    "keymaster": "^1.6.2",
     "prop-types": "^15.6.1",
-    "umi-plugin-dva": "^0.1.5"
+    "react-intl": "^2.4.0",
+    "umi": "^1.0.0-0",
+    "umi-plugin-dva": "^0.4.0",
+    "umi-plugin-routes": "^0.1.1"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
