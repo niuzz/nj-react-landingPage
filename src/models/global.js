@@ -33,8 +33,8 @@ export default {
       });
       yield put(routerRedux.push('/admin'));
     },
-    *throwError() {
-      throw new Error('hi error');
-    },
+    // *throwError() {
+    //   throw new Error('hi error');
+    // },
   },
 };
