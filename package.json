@@ -22,17 +22,16 @@
     "babel-eslint": "^8.2.2",
     "echarts": "^4.0.4",
     "prop-types": "^15.6.1",
-    "react-intl": "^2.4.0",
-    "umi": "^1.0.0-0",
-    "umi-plugin-dva": "^0.4.0",
-    "umi-plugin-routes": "^0.1.1"
+    "umi": "^1.1.5",
+    "umi-plugin-dva": "^0.6.1",
+    "umi-plugin-routes": "^0.1.2"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-umi": "^0.1.4",
-    "eslint-plugin-flowtype": "^2.46.1",
-    "eslint-plugin-import": "^2.9.0",
+    "eslint": "^4.14.0",
+    "eslint-config-umi": "^0.1.1",
+    "eslint-plugin-flowtype": "^2.34.1",
+    "eslint-plugin-import": "^2.6.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.7.0"
+    "eslint-plugin-react": "^7.1.0"
   }
 }
