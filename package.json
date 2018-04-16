@@ -1,37 +1,16 @@
 {
   "name": "nj-react",
-  "version": "1.0.0",
-  "description": "umi react ssr",
-  "main": ".webpackrc.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "umi dev",
-    "build": "umi build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/niuzz/nj-react-ssr.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/niuzz/nj-react-ssr/issues"
-  },
-  "homepage": "https://github.com/niuzz/nj-react-ssr#readme",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "babel-eslint": "^8.2.2",
-    "echarts": "^4.0.4",
-    "prop-types": "^15.6.1",
-    "umi": "^1.1.5",
-    "umi-plugin-dva": "^0.6.1",
-    "umi-plugin-routes": "^0.1.2"
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-scripts": "1.1.4"
   },
-  "devDependencies": {
-    "eslint": "^4.14.0",
-    "eslint-config-umi": "^0.1.1",
-    "eslint-plugin-flowtype": "^2.34.1",
-    "eslint-plugin-import": "^2.6.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.1.0"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
