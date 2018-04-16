@@ -5,6 +5,7 @@
  *******************************************/
 import React from 'react'
 import { connect } from 'dva'
+import router from 'umi/router'
 
 function mapStateToProps(state) {
 	return { 
@@ -23,7 +24,7 @@ function CountApp(props) {
 				<button onClick={() => { props.dispatch({ type: 'count/minus'}); }}>-</button>
 			</div>
 			<div>
-				<button onClick={() => {}}>跳转的list</button>
+				<button variant="raised" color="primary" onClick={() => {router.push('/list')}}>跳转的list</button>
 			</div>
 		</div>
 	)

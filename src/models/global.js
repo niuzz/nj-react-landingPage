@@ -9,7 +9,7 @@ import routerRedux from 'dva/router';
 export default {
 	namespace: 'global',
 	state: {
-		title: '金网传媒',
+		title: 'light media===========>>>>>>>>>>>>>',
 		login: false
 	},
 	reducers: {
