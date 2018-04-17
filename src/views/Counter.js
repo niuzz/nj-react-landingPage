@@ -3,69 +3,45 @@
  *  Created On : Mon Apr 16 2018
  *  File : counter.js
  *******************************************/
-import React, { Component } from 'react'
+import React from 'react'
 
-import store from '../Store'
+import { connect } from 'react-redux'
 import * as Actions from '../Actions'
 
 import PropTypes from 'prop-types'
 
-class Counter extends Component {
-	constructor(props) {
-		super(props)
-
-		this.onClickIncrement = this.onClickIncrement.bind(this)
-		this.onClickDecrement = this.onClickDecrement.bind(this)
-		this.onChange = this.onChange.bind(this)
-		this.getOwnState = this.getOwnState.bind(this)
-
-		this.state = this.getOwnState()
-	}
-
-	getOwnState() {
-		return {
-			value: store.getState()[this.props.caption]
-		}
-	}
-
-	onClickIncrement() {
-		store.dispatch(Actions.increment(this.props.caption))
-	}
-
-	onClickDecrement() {
-		store.dispatch(Actions.decrement(this.props.caption))
-	}
-
-	onChange() {
-		this.setState(this.getOwnState())
-	}
-
-	shouldComponentUpdate(nextProps, nextState) {
-		return (nextProps.caption !== this.props.caption) || (nextState.value !== this.state.value)
-	}
-
-	componentDidMount() {
-		store.subscribe(this.onChange)
-	}
-
-	componentWillUnmount() {
-		store.unsubscribe(this.onChange)
-	}
-
-	render() {
-		const { caption } = this.props
+function Counter ({caption, onIncrement, onDecrement, value}) {
 		return(
 			<div>
-				<button onClick={this.onClickIncrement}>+</button>
-				<button onClick={this.onClickDecrement}>-</button>
-				<span>{caption} count: {this.state.value}</span>
+				<button onClick={onIncrement}>+</button>
+				<button onClick={onDecrement}>-</button>
+				<span>{caption} count: {value}</span>
 			</div>
 		)
-	}
 }
 
 Counter.propTypes = {
-	caption: PropTypes.string.isRequired
+	caption: PropTypes.string.isRequired,
+	onIncrement: PropTypes.func.isRequired,
+	onDecrement: PropTypes.func.isRequired,
+	value: PropTypes.number.isRequired
 }
 
-export default Counter
+function mapStateToProps(state, ownProps) {
+	return {
+		value: state[ownProps.caption]
+	}
+}
+
+function mapDispatchToProps(dispatch, ownProps) {
+	return {
+		onIncrement: () => {
+			dispatch(Actions.increment(ownProps.caption))
+		},
+		onDecrement: () => {
+			dispatch(Actions.decrement(ownProps.caption))
+		}
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter)
