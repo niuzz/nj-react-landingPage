@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import './index.css';
 
-import ControlPanel from './views/ControlPanel';
+import ToDoApp from './ToDoApp';
 import store from './Store';
 
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
 	<Provider store={store}>
-		<ControlPanel />
+		<ToDoApp />
 	</Provider>, 
 	document.getElementById('root')
 );
