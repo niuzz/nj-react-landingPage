@@ -4,10 +4,13 @@
  *  File : ToDoApp.js
  *******************************************/
 import React from 'react';
+import { view as Todos } from "./todos";
 
 function ToDoApp () {
 	return (
-		<div> ToDoApp </div>
+		<div>
+			<Todos />
+		</div>
 	)
 }
 

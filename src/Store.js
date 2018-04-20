@@ -3,15 +3,31 @@
  *  Created On : Thu Apr 19 2018
  *  File : Store.js
  *******************************************/
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 
-const reducer = combineReducers()
+import { reducer as todoReducer } from './todos';
+import { reducer as filterReducer } from './filter';
 
-const middlewares = []
+import Perf from 'react-addons-perf'
+
+// 优化工具
+const win = window;
+win.Perf = Perf
+
+const reducer = combineReducers({
+	todos: todoReducer,
+	filter: filterReducer
+});
+
+// 纯函数校验
+const middlewares = [];
 if (process.env.NODE_ENV !== 'production') {
-	console.log('dev')
+	middlewares.push(require('redux-immutable-state-invariant')());
 }
 
-const storeEnhancers = compose();
+const storeEnhancers = compose(
+	applyMiddleware(...middlewares),
+	(win && win.devToolsExtension) ? win.devToolsExtension() : (f) => f,
+);
 
-export default {}
+export default createStore(reducer, {}, storeEnhancers);
