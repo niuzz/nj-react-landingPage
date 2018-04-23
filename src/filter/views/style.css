@@ -1,0 +1,33 @@
+/******************************************
+*  Author : niuzz niuzz@hotmail.com   
+*  Created On : Mon Apr 23 2018
+*  File : style.css
+*******************************************/
+.filters {
+  font-size: 20px;
+}
+
+.filters .filter {
+  margin: 3px;
+  padding: 3px 7px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+.filters .selected {
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.filters .not-selected {
+  color: black;
+  text-decoration: none;
+  border: 1px solid;
+  border-color: rgba(175, 47, 47, 0.2);
+}
+
+.filters .not-selected:hover {
+  border-color: rgba(175, 47, 47, 0.2);
+}
+

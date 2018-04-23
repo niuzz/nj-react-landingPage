@@ -4,7 +4,7 @@
  *  File : todos.js
  *******************************************/
 import React from 'react';
-import AppTodo from './addTodo';
+import AddTodo from './addTodo';
 import TodoList from './todoList';
 
 export default () => {
