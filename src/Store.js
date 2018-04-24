@@ -8,11 +8,11 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { reducer as todoReducer } from './todos';
 import { reducer as filterReducer } from './filter';
 
-import Perf from 'react-addons-perf'
+// import Perf from 'react-addons-perf'
 
-// 优化工具
+// 优化工具 16无法使用
 const win = window;
-win.Perf = Perf
+// win.Perf = Perf
 
 const reducer = combineReducers({
 	todos: todoReducer,
@@ -22,7 +22,7 @@ const reducer = combineReducers({
 // 纯函数校验
 const middlewares = [];
 if (process.env.NODE_ENV !== 'production') {
-	middlewares.push(require('redux-immutable-state-invariant')());
+	middlewares.push(require('redux-immutable-state-invariant').default());
 }
 
 const storeEnhancers = compose(

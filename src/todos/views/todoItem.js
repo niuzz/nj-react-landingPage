@@ -7,14 +7,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const TodoItem = ({onToggle, onRemove, completed, text}) => {
-	const checkedProp = completed ? {checked: true} : {}
+	const checkedProp = completed ? {checked: true} : {checked: false}
 	return(
 		<li
 			style= {{textDecoration: completed? 'line-through' : 'none'}}
 		>
-			<input type="checkbox" {...checkedProp} readOnly onclik={onToggle}/>
+			<input type="checkbox" {...checkedProp} readOnly onClick={onToggle}/>
 			<label>{text}</label>
-			<button onClik={onRemove}>*</button>
+			<button onClick={onRemove}>*</button>
 		</li>
 	)
 }
