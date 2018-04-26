@@ -6,12 +6,14 @@
 import React from 'react';
 import { view as Todos } from "./todos";
 import { view as Filter} from './filter';
+import { view as CountDown } from './countDown';
 
 function ToDoApp () {
 	return (
 		<div>
 			<Todos />
 			<Filter />
+			<CountDown />
 		</div>
 	)
 }
