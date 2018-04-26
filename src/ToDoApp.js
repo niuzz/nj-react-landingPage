@@ -7,6 +7,7 @@ import React from 'react';
 import { view as Todos } from "./todos";
 import { view as Filter} from './filter';
 import { view as CountDown } from './countDown';
+import { view as Weather } from './weather'
 
 function ToDoApp () {
 	return (
@@ -14,6 +15,7 @@ function ToDoApp () {
 			<Todos />
 			<Filter />
 			<CountDown />
+			<Weather />
 		</div>
 	)
 }
