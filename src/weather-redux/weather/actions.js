@@ -5,6 +5,8 @@
  *******************************************/
 import { FETCH_STARTED, FETCH_SUCCESS, FETCH_FAILURE } from './actionTypes';
 
+let nextSeqId = 0;
+
 export const fetchWeatherStarted = () => ({
 	type:FETCH_STARTED
 });
@@ -23,7 +25,16 @@ export const fetchWeather = (cityCode) => {
 	return dispatch => {
 		const apiUrl = `/data/cityinfo/${cityCode}.html`;
 
-		dispatch(fetchWeatherStarted())
+		const seqId = ++nextSeqId;
+
+		// 如果来的请求跟老的请求相同就dispatch，如果有新的请求就什么也不做。间接实现了异步中断
+
+		const dispatchIfValid = action => {
+			if (seqId === nextSeqId) {
+				return dispatch(action);
+			} 
+		}
+		dispatchIfValid(fetchWeatherStarted())
 
 		return fetch(apiUrl).then(response => {
 			
@@ -31,12 +42,12 @@ export const fetchWeather = (cityCode) => {
 				throw new Error('Fail to get response with status ' + response.status)
 			}
 			response.json().then(responseJson => {
-				dispatch(fetchWeatherSuccess(responseJson.weatherinfo));
+				dispatchIfValid(fetchWeatherSuccess(responseJson.weatherinfo));
 			}).catch(error => {
-				dispatch(fetchWeatherFailure(error));
+				dispatchIfValid(fetchWeatherFailure(error));
 			});
 		}).catch(error => {
-			dispatch(fetchWeatherFailure(error));
+			dispatchIfValid(fetchWeatherFailure(error));
 		})
 	}
 }
