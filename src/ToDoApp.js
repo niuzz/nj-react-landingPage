@@ -8,6 +8,7 @@ import { view as Todos } from "./todos";
 import { view as Filter} from './filter';
 import { view as CountDown } from './countDown';
 import { view as Weather } from './weather'
+import { view as WeatherRedux } from './weather-redux'
 
 function ToDoApp () {
 	return (
@@ -16,6 +17,8 @@ function ToDoApp () {
 			<Filter />
 			<CountDown />
 			<Weather />
+			<hr />
+			<WeatherRedux />
 		</div>
 	)
 }

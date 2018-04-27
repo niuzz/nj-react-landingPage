@@ -4,9 +4,11 @@
  *  File : Store.js
  *******************************************/
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import thunkMiddleware from 'redux-thunk';
 
 import { reducer as todoReducer } from './todos';
 import { reducer as filterReducer } from './filter';
+import { reducer as weatherReducer } from './weather-redux/weather/';
 
 // import Perf from 'react-addons-perf'
 
@@ -16,11 +18,12 @@ const win = window;
 
 const reducer = combineReducers({
 	todos: todoReducer,
-	filter: filterReducer
+	filter: filterReducer,
+	weather: weatherReducer,
 });
 
 // 纯函数校验
-const middlewares = [];
+const middlewares = [thunkMiddleware];
 if (process.env.NODE_ENV !== 'production') {
 	middlewares.push(require('redux-immutable-state-invariant').default());
 }
