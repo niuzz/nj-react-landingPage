@@ -1,14 +1,14 @@
 /******************************************
  *  Author : niuzz niuzz@hotmail.com   
  *  Created On : Sat Apr 28 2018
- *  File : index.js
+ *  File : NotFound.js
  *******************************************/
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-import Routes from './Routes';
+const NotFound = () => {
+	return (
+		<div>404: Not Found</div>
+	);
+};
 
-ReactDOM.render(
-	<Routes />,
-	document.getElementById('root')
-)
+export default NotFound;
