@@ -9,21 +9,28 @@ import TodoItem from './todoItem.js';
 import { toggleTodo, removeTodo } from '../actions.js';
 import { FilterTypes } from '../../constants.js';
 import PropTypes from "prop-types";
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import './todoItem.css'
 
 const TodoList = ({ todos, onToggleTodo, onRemoveTodo }) => {
 	return (
 		<ul className="todo-list">
-			{
-				todos.map((item) => (
-					<TodoItem
-						key={item.id}
-						text={item.text}
-						completed={item.completed}
-						onToggle={() => onToggleTodo(item.id)}
-						onRemove={() => onRemoveTodo(item.id)}
-					/>
-				))
-			}
+			<ReactCSSTransitionGroup
+				transitionName="fade"
+				transitionEnterTimeout={500}
+				transitionLeaveTimeout={300}>
+				{
+					todos.map((item) => (
+						<TodoItem
+							key={item.id}
+							text={item.text}
+							completed={item.completed}
+							onToggle={() => onToggleTodo(item.id)}
+							onRemove={() => onRemoveTodo(item.id)}
+						/>
+					))
+				}
+			</ReactCSSTransitionGroup>
 		</ul>
 	);
 };
