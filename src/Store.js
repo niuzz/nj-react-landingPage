@@ -15,6 +15,8 @@ const storeEnhancers = compose(
 	(win && win.devToolsExtension) ? win.devToolsExtension() : (f) => f,
 );
 
-const initialState = {};
+const initialState = {
+	name: 'Jason'
+};
 //const initialState = {};
 export default createStore(reducer, initialState, storeEnhancers);

@@ -4,11 +4,18 @@
  *  File : About.js
  *******************************************/
 import React from 'react';
+import {connect} from 'react-redux';
 
-const About = () => {
+const About = (props) => {
 	return (
-		<div>about</div>
+		<div> {props.name}:happy</div>
 	);
 };
 
-export default About;
+const mapStateToProp = (state) => {
+	return {
+		name: state.name
+	}
+}
+
+export default connect(mapStateToProp)(About);
