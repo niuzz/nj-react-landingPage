@@ -4,46 +4,27 @@
  *  File : index.js
  *******************************************/
 import React, { Component } from 'react';
-import { Input, Button } from 'element-react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import './App.css';
 
+import Home from '../Home';
+import Login from '../Login';
+import NotFound from '../../components/NotFound'
+
 class App extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			name: 'Jason'
-		}
-		this.handelClick = this.handelClick.bind(this)
-		this.handelNameChange = this.handelNameChange.bind(this)
-	}
-
-	handelNameChange(value) {
-		this.setState({
-			name: value
-		})
-	}
-	handelClick() {
-		console.log(this.state.name)
-	}
-
 	render() {
-		return (
-			<div className="App">
-				<Input
-					icon="time"
-					placeholder="按名称搜索"
-					name="name"
-					value={this.state.name} 
-					onChange={this.handelNameChange}
-					append={
-						<Button type="primary" icon="search" onClick={this.handelClick}>
-							搜索
-						</Button>
-					}		
-				/>
+		return(
+			<div>
+				<Router>
+					<Switch>
+						<Route exact path="/" component={ Home } />
+						<Route path="/login" component={ Login } />
+						<Route path="*" component={NotFound} />
+					</Switch>
+				</Router>
 			</div>
-		);
+		)
 	}
 }
 
