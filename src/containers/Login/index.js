@@ -4,11 +4,13 @@
  *  File : index.js
  *******************************************/
 import React, { Component } from 'react';
-import { Form, Input, Button, Message } from "element-react";
+import { Form, Input, Button } from "element-react";
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Redirect } from "react-router-dom";
+import { actions as authActions, getLoggedUser } from '../../redux/modules/auth';
 
 import './style.css';
-
-import { Login} from '../../api/login';
 
 class LoginClass extends Component {
 	constructor(props) {
@@ -30,6 +32,15 @@ class LoginClass extends Component {
 		}
 	}
 
+	componentWillReceiveProps(nextProps) {
+		const isLoginedIn = !this.props.user.uid && nextProps.user.uid;
+		if (isLoginedIn) {
+			this.setState({
+				form: {...this.state.form, redirectToReferrer: true}
+			})
+		}
+	}
+
 	onChange = (key, value) => {
 		this.setState({
 			form: Object.assign({}, this.state.form, { [key]: value })
@@ -42,32 +53,14 @@ class LoginClass extends Component {
 
 		this.refs.form.validate((valid) => {
 			if (valid) {
-				alert('submit!');
+				const username = this.state.form.username;
+				const password = this.state.form.password;
+				this.props.login(username, password);
 			} else {
 				console.log('error submit!!');
 				return false;
 			}
-		});
-
-		let params = {
-			username: this.state.form.username,
-			password: this.state.form.password
-		}
-		Login(params).then(
-			response => {
-				let code = response.data.code;
-				if (code === 1000) {
-					console.log(response);
-				} else if (code === 3002) {
-					Message({
-						message: '用户名或密码错',
-						type: 'error'
-					});
-				}
-			}
-		).catch(err => {
-			console.log(err);
-		})
+		});		
 	}
 
 	onCancle = e => {
@@ -78,6 +71,10 @@ class LoginClass extends Component {
 	}
 
 	render() {
+		const { redirectToReferrer } = this.state.form;
+		if (redirectToReferrer) {
+			return <Redirect to={'/'} />
+		}
 		return(
 			<div className="login">
 				<Form ref="form" model={this.state.form} labelWidth="80" onSubmit={this.onSubmit.bind(this)}>
@@ -97,4 +94,16 @@ class LoginClass extends Component {
 	}
 }
 
-export default LoginClass;
+const mapStateToProps = (state, props) => {
+	return {
+		user: getLoggedUser(state)
+	}
+}
+
+const mapDispathcToProps = dispatch => {
+	return {
+		...bindActionCreators(authActions, dispatch)
+	}
+}
+
+export default connect(mapStateToProps, mapDispathcToProps)(LoginClass);
