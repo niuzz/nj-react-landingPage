@@ -13,6 +13,7 @@ package.json
 # dependencies
 /node_modules
 /src/api
+/nt-app/src/utils
 # testing
 /coverage
 
