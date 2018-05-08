@@ -11,8 +11,8 @@ import { login } from '../../api/user';
 
  export const types = {
 	LOGIN: 'AUTH/LGOIN',
-	LOGOUT: 'AUTH/LOGOUT',
-	SET_USERINFO: 'AUTH/SET_USERINFO'
+	 LOGOUT: 'AUTH/LOGOUT',
+	 SET_USERINFO: 'AUTH/SET_USERINFO'
  }
 
  export const actions = {
