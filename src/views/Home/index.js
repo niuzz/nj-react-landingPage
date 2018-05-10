@@ -4,10 +4,10 @@
  *  File : index.js
  *******************************************/
 import React, { Component } from 'react';
-import {
-	push
-} from 'react-router-redux'
-import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import {actions as authActions} from '../../redux/modules/auth';
+
+import { connect } from 'react-redux';
 
 import { Button } from 'antd';
 import './Home.css';
@@ -20,6 +20,7 @@ class Home extends Component {
 	}
 
 	handleClick() {
+		this.props.login('aaa', 111)
 	}
 
 	render() {
@@ -32,8 +33,10 @@ class Home extends Component {
 	}
 }
 
-export default connect(null, dispatch => ({
-	login: () => {
-		dispatch(push('/login'))
+const mapDispatchToProps = dispatch => {
+	return {
+		...bindActionCreators(authActions, dispatch)
 	}
-}))(Home)
+}
+
+export default connect(null, mapDispatchToProps)(Home)
