@@ -1,42 +1,49 @@
-/******************************************
- *  Author : niuzz niuzz@hotmail.com   
- *  Created On : Tue May 08 2018
- *  File : index.js
- *******************************************/
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import {actions as authActions} from '../../redux/modules/auth';
-
-import { connect } from 'react-redux';
-
-import { Button } from 'antd';
-import './Home.css';
+import Button from '@material-ui/core/Button';
 
 class Home extends Component {
-
-	constructor() {
-		super()
-		this.handleClick = this.handleClick.bind(this)
+	
+	constructor(props) {
+		super(props)
+		this.state = {
+			text: '要有光',
+			color: 'primary'
+		}
+		this.btnClick = this.btnClick.bind(this)
+		this.toList = this.toList.bind(this)
 	}
 
-	handleClick() {
-		this.props.login('aaa', 111)
+	btnClick(e) {
+		this.setState({
+			text: this.state.text === '要有光' ? 'shine' : '要有光',
+			color: this.state.color === 'primary' ? 'secondary' : 'primary'
+		}, () => {
+			this.props.changeBg(this.state.text)
+		})
+		
+	}
+
+	toList() {
+		this.props.history.push('/list')
+		// console.log(this.props)
 	}
 
 	render() {
 		return(
-		<div>
-			<p>Home</p>
-				<Button type='primary' size='small' icon='cloud' onClick={this.handleClick}>要有光</Button>		
-		</div>
+			<div>
+				<p className="App-intro">
+					<Button variant="raised" color={this.state.color} onClick={this.btnClick}>
+						{this.state.text}
+					</Button>
+				</p>
+				<p>
+					<Button variant="raised" color="primary" onClick={this.toList}>
+						go to List page
+          </Button>
+				</p>
+			</div>
 		)
 	}
 }
 
-const mapDispatchToProps = dispatch => {
-	return {
-		...bindActionCreators(authActions, dispatch)
-	}
-}
-
-export default connect(null, mapDispatchToProps)(Home)
+export default Home
