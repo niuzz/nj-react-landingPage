@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import logo from './logo.svg';
 import Home from '../Home';
 import List from '../List';
+import Detail from '../Detail';
 
 import 'normalize.css';
 import './App.css';
@@ -40,6 +41,7 @@ class App extends Component {
               exact>
             </Route>
             <Route path="/list" component={List}></Route>
+            <Route path="/detail" component={Detail}></Route>
           </Switch>
         </div>
       </Router>

@@ -7,7 +7,7 @@ class Home extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			text: '要有光',
+			text: 'Let there be light',
 			color: 'primary'
 		}
 		this.btnClick = this.btnClick.bind(this)
@@ -16,7 +16,7 @@ class Home extends Component {
 
 	btnClick(e) {
 		this.setState({
-			text: this.state.text === '要有光' ? 'shine' : '要有光',
+			text: this.state.text === 'Let there be light' ? 'shine' : 'Let there be light',
 			color: this.state.color === 'primary' ? 'secondary' : 'primary'
 		}, () => {
 			this.props.changeBg(this.state.text)
