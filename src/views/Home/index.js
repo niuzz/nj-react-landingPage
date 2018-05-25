@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
+import './index.css';
 
 class Home extends Component {
 	
@@ -30,7 +31,7 @@ class Home extends Component {
 
 	render() {
 		return(
-			<div>
+			<div className="App-wrap">
 				<p className="App-intro">
 					<Button variant="raised" color={this.state.color} onClick={this.btnClick}>
 						{this.state.text}
