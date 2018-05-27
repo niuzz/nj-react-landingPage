@@ -115,7 +115,6 @@ class List extends Component {
 				{ this.state.loading ?
 					(
 						<div>
-							<h5>{this.state.data.title}</h5>
 							<Table className={this.props.classes.table}>
 								<TableHead>
 									<TableRow>
