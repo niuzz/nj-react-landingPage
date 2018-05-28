@@ -88,7 +88,7 @@ class List extends Component {
 		this.setState({
 			loading: false
 		})
-		axios.get('/v2/movie/top250', { params: { start: page * 20, count: 20 } }).then(response => {
+		axios.get('http://localhost:7001/v2/movie/top250', { params: { start: page * 20, count: 20 } }).then(response => {
 			let status = response.status
 			let msg = response.statusText
 			if (msg === 'OK') {
