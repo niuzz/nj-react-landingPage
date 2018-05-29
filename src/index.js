@@ -11,7 +11,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 const store = configureStore();
 
-ReactDOM.render(
+export default ReactDOM.render(
 	<Provider store = {store}>
 		<App />
 	</Provider>, 

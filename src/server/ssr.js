@@ -1,10 +1,22 @@
 import Koa from 'koa';
 import React from 'react'
 import {renderToString} from 'react-dom/server'
+import views from 'koa-views'
+import path from 'path'
+
+import App from '../../src/index'
 
 const app = new Koa()
-app.use(ctx => {
-	ctx.body = 'hello'
+// 将/public文件夹设置为静态路径
+app.use(require('koa-static')(__dirname + '/public'))
+// 将ejs设置为我们的模板引擎
+app.use(views(path.resolve(__dirname, './views'), { map: { html: 'ejs' } }))
+
+app.use(async ctx => {
+	let str = renderToString(App)
+	await ctx.render('index', {
+		root: str
+	})
 })
 
 app.listen(7000)
