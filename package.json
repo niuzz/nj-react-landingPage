@@ -1,0 +1,17 @@
+{
+  "name": "nj-react",
+  "version": "3.0",
+  "private": true,
+  "dependencies": {
+    "antd": "^3.5.4",
+    "express": "^4.16.3",
+    "next": "^6.0.3",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  },
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "next start"
+  }
+}

@@ -1,20 +1,18 @@
 # directory
 .idea
-node_modules
 .umi
 .vscode
-dist
+/**/dist
+/**/.next
+/**/node_modules
 
 # files
-
 package-lock.json
-package.json
 AS.js
 
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
 /src/api
 /nt-app/src/utils
 # testing
